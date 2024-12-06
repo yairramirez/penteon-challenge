@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# PENTEON CHALLENGE - YAIR RAMIREZ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objective
 
-Currently, two official plugins are available:
+Your goal is to build a simple web application using React that interacts with
+multiple external APIs. You will need to fetch a list of cat facts using the free cat
+fact API and display them in a list. Each cat fact should be paired with a random
+person, courtesy of the Random User API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Requirements
 
-## Expanding the ESLint configuration
+- Use TailwindCSS to style your components.
+- Use React-Query to fetch + cache the data from the APIs.
+- Add a skeleton loading state while you fetch the APIs.
+- Gracefully handle errors from the API.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Bonus
 
-- Configure the top-level `parserOptions` property like this:
+- Use TypeScript
+- Implement infinite scroll pagination
+
+## Notes
+
+I can't complete the task using react-query, to complete successfully that part I need 1 day to take a look on how react-query works properly, I tried but I don't feel I have the correct implementation so that's the reason I solve it using axios.
+
+Maybe if it works for you in a future, I solve the tailwind issue doing this in my `vite.config.ts`
 
 ```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from "tailwindcss";
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  css: {
+    postcss: {
+      plugins: [tailwindcss()],
     },
   },
 })
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Anyway, thanks for the opportunity!
+Best regards!
+Yair Ramirez
